@@ -1,0 +1,21 @@
+sudo sed -i '64i\##### OCI vNIC variables\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+sudo sed -i '65i\server="`hostname -s`"\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '66i\node-avnic="ocid1.vnicattachment.oc1.uk-london-1.anwgiljtaquty6icboro4posjneo43kl6ssowzjua22s6dgjf6fegnqoufea"\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '67i\node-bvnic=""ocid1.vnicattachment.oc1.uk-london-1.anwgiljsaquty6icy724oabws65scdxoexljma37obshpqqhcqybar3h7vta\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '68i\vnicip="172.56.0.91"\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '614i\##### OCI/IPaddr Integration\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '615i\        if [ $server = "node-a" ]; then\' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '616i\                /root/bin/oci network vnic assign-private-ip --unassign-if-already-assigned --vnic-id $node-avnic  --ip-address $vnicip \' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '617i\        else \' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '618i\                /root/bin/oci network vnic assign-private-ip --unassign-if-already-assigned --vnic-id $node-bvnic  --ip-address $vnicip \' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
+sudo sed -i '619i\        fi \' /usr/lib/ocf/resource.d/heartbeat/IPaddr2
+
